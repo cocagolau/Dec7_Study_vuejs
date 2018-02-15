@@ -7,14 +7,17 @@
   </head>
   <body>
     <div id="app">
-      {{message}}
+      <button @click="showAlert">Click me</button>
     </div>
+
     <script src="https://unpkg.com/vue@2.3"></script>
     <script>
       new Vue({
         el: '#app',
-        data: {
-          message: 'Hello, Vue'
+        methods: {
+          showAlert: function() {
+            alert("??");
+          }
         }
       });
 
