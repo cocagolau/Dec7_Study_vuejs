@@ -15,7 +15,7 @@
     <div id="app">
       <div id="outer" @click="func1">
         1
-        <div id="middle" @click.stop="func2">
+        <div id="middle" @click.self="func2">
           2
           <div id="inner" @click="func3">
             3
