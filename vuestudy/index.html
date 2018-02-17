@@ -13,20 +13,24 @@
 
     <script src="https://unpkg.com/vue@2.3"></script>
     <script>
+
+      Vue.filter('ellipsis', function(value, length, string) {
+        return value.slice(0, length) + string;
+      });
+
       new Vue({
         el: '#app',
         data: {
           message:'     하하하. vue.js 재밌게 재밌게 공부합니다. !!    '
         },
         filters: {
-          ellipsis: function(value, length, string) {
-            return value.slice(0, length) + string;
-          },
           trim: function(value) {
             return value.trim();
           }
         }
       });
+      
+
     </script>
   </body>
 </html>
