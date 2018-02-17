@@ -7,8 +7,7 @@
   </head>
   <body>
     <div id="app">
-      <a v-bind:href="naverLink">Naver Link</a>
-      <a v-bind:href="githubLink">Github Link</a>
+      <span v-if="isShow">Is it shown ?</span>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -16,8 +15,7 @@
       new Vue({
         el: '#app',
         data: {
-          naverLink: 'http://www.naver.com',
-          githubLink: 'https://github.com'
+          isShow: false
         }
       });
 
