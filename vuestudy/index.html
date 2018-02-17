@@ -7,10 +7,11 @@
   </head>
   <body>
     <div id="app">
-      <input type="radio" v-model="lateNightMeal" v-bind:value="foods[0]">
-      <input type="radio" v-model="lateNightMeal" v-bind:value="foods[1]">
-      <input type="radio" v-model="lateNightMeal" v-bind:value="foods[2]">
-      {{ lateNightMeal }}
+      <select v-model="selectModel">
+        <option v-for="artist in artists" v-bind:value="artist">
+          {{ artist }}
+        </option>
+      </select>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -18,11 +19,12 @@
       new Vue({
         el: '#app',
         data: {
-          lateNightMeal: "Hamburger",
-          foods: [
-            'Ramen',
-            'Hamburger',
-            'Chicken'
+          selectModel:'Girl\'s generation',
+          artists: [
+            'Girl\'s generation',
+            '트와이스',
+            'Momoland',
+            '여자친구'
           ]
         }
       });
