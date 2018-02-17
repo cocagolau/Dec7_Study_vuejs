@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>vuestudy</title>
     <style>
-      body {
-        margin: 0;
-      }
-      .screen {
-        width: 100%;
-        height: 400px;
-        background-color: #DDD;
-      }
+      div { padding: 20px; }
+      #outer { background: blue; }
+      #middle { background: green; }
+      #inner { background: white; }
     </style>
   </head>
   <body>
     <div id="app">
-      <div v-on:mousemove="trackingMouse" class="screen">
-        {{ mouse.x }}, {{ mouse.y }}
+      <div id="outer" @click="func1">
+        1
+        <div id="middle" @click="func2">
+          2
+          <div id="inner" @click="func3">
+            3
+          </div>
+        </div>
       </div>
     </div>
 
@@ -26,16 +28,15 @@
     <script>
       new Vue({
         el: '#app',
-        data :{
-          mouse: {
-            x: 0,
-            y: 9
-          }
-        },
         methods: {
-          trackingMouse: function(event) {
-            this.mouse.x = event.clientX;
-            this.mouse.y = event.clientY;
+          func1: function() {
+            console.log('1 - outer');
+          },
+          func2: function() {
+            console.log('2 - middle');
+          },
+          func3: function() {
+            console.log('3 - inner');
           }
         }
       });
