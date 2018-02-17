@@ -7,8 +7,8 @@
   </head>
   <body>
     <div id="app">
-      <input type="text" v-model.lazy="lazyModel">
-      <p>{{ lazyModel }}</p>
+      <input type="text" v-model.trim="trimModel">
+      <p>{{ trimModel }}</p>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -16,7 +16,7 @@
       new Vue({
         el: '#app',
         data: {
-          lazyModel:'Hello'
+          trimModel:'     Hello    '
         }
       });
     </script>
