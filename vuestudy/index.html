@@ -7,19 +7,16 @@
   </head>
   <body>
     <div id="app">
-      <label>
-        input[type=text]:<br>
-        <input type="text" v-model="textMessage">
-        <p>{{ textMessage }}</p>
+      <input type="radio" id="male" value="male" v-model="gender">
+      <label for="male">Male</label>
 
-      </label>
-      <hr>
+      <br>
 
-      <label>
-        textarea:<br>
-        <textarea v-model="textareaMessage"></textarea>
-        <p style="white-space: pre">{{ textareaMessage }}</p>
-      </label>
+      <input type="radio" id="female" value="female" v-model="gender">
+      <label for="female">Female</label>
+      <br>
+
+      <span>Select: {{ gender }}</span>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -27,8 +24,7 @@
       new Vue({
         el: '#app',
         data: {
-          textMessage:'Hello Vue',
-          textareaMessage: 'Hello\nVue'
+          gender:''
         }
       });
     </script>
