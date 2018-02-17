@@ -13,15 +13,9 @@
   </head>
   <body>
     <div id="app">
-      <div id="outer" @click="func1">
-        1
-        <div id="middle" @click.self="func2">
-          2
-          <div id="inner" @click="func3">
-            3
-          </div>
-        </div>
-      </div>
+      <a href="https://www.google.com">link 1</a>
+      <a href="https://www.google.com" @click.prevent=>link 2</a>
+      <a href="https://www.google.com" @click="preventFn">link 3</a>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -29,18 +23,8 @@
       new Vue({
         el: '#app',
         methods: {
-          func1: function() {
-            console.log('1 - outer');
-          },
-          func2: function() {
-            console.log('2 - middle');
-          },
-          func2_original: function(e) {
-            console.log('2 - middle');
-            e.stopPropagation();
-          },
-          func3: function() {
-            console.log('3 - inner');
+          preventFn: function() {
+            event.preventDefault();
           }
         }
       });
