@@ -7,33 +7,16 @@
   </head>
   <body>
     <div id="app">
-      <button @click="showAlert">Click me</button>
+      문자열: {{message}} <br>
+      문자열 역순: {{message.split('').reverse().join('') }}
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
     <script>
       new Vue({
         el: '#app',
-        beforeCreate: function() {
-          console.log('beforeCreate');
-        },
-        created: function() {
-          console.log('created');
-        },
-        mounted: function() {
-          console.log('mounted');
-        },
-        beforeUpdate: function() {
-          console.log('beforeUpdate');
-        },
-        update: function() {
-          console.log('update')
-        },
-        beforeDestroy: function() {
-          console.log('beforeDestroy');
-        },
-        destroyed: function() {
-          console.log('destroyed');
+        data: {
+          message: 'Hello Vue!'
         }
       });
 
