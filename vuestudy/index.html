@@ -13,9 +13,9 @@
   </head>
   <body>
     <div id="app">
-      <div id="outer" @click.capture="func1">
+      <div id="outer" @click="func1">
         1
-        <div id="middle" @click="func2">
+        <div id="middle" @click.stop="func2">
           2
           <div id="inner" @click="func3">
             3
@@ -34,6 +34,10 @@
           },
           func2: function() {
             console.log('2 - middle');
+          },
+          func2_original: function(e) {
+            console.log('2 - middle');
+            e.stopPropagation();
           },
           func3: function() {
             console.log('3 - inner');
