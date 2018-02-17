@@ -8,10 +8,16 @@
   <body>
     <div id="app">
       <ul>
-        <template v-for="(item, key) in object">
-          <h1>{{ key }}</h1>
-          <p>{{ item }}</p>
-        </template>
+        <li v-for="todo in todos" v-if="todo.isComplete">
+          {{ todo.contents }}
+        </li>
+      </ul>
+
+      <h2>not yet..</h2>
+      <ul>
+        <li v-for="todo in todos" v-if="!todo.isComplete">
+          {{ todo.contents }}
+        </li>
       </ul>
     </div>
 
@@ -20,11 +26,11 @@
       new Vue({
         el: '#app',
         data: {
-          object: {
-            firstName: 'Dong-Gyu',
-            lastName: 'Seo',
-            age: 31
-          }
+          todos: [
+            {contents: '1 contents', isComplete:true},
+            {contents: '2 contents', isComplete:false},
+            {contents: '3 contents', isComplete:false}
+          ]
         }
       });
 
