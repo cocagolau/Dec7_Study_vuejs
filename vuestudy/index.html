@@ -7,18 +7,9 @@
   </head>
   <body>
     <div id="app">
-      <label>
-        Name:
-        <input v-model="name" value="DongGyu">
-      </label>
-
-      <br>
-
-      <label>
-        Do you want to get an email ?
-        <input type="checkbox" v-model="acceptMail" checked>
-      </label>
-
+      {{ message }}
+      <input v-model="message">
+      <!-- input anything as korean -->
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -26,8 +17,7 @@
       new Vue({
         el: '#app',
         data: {
-          name:'Dec7',
-          acceptMail: false
+          message:"안녕하세요 ?"
         }
       });
     </script>
