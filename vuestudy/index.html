@@ -7,7 +7,8 @@
   </head>
   <body>
     <div id="app">
-      <span v-html="message"></span>
+      <a v-bind:href="naverLink">Naver Link</a>
+      <a v-bind:href="githubLink">Github Link</a>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -15,7 +16,8 @@
       new Vue({
         el: '#app',
         data: {
-          message:'Hello,<br>Vue!'
+          naverLink: 'http://www.naver.com',
+          githubLink: 'https://github.com'
         }
       });
 
