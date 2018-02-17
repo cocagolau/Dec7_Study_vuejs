@@ -7,8 +7,10 @@
   </head>
   <body>
     <div id="app">
-      <input type="checkbox" v-model="checkboxModel" v-bind:true-value="trueValue" v-bind:false-value="falseValue">
-      {{ checkboxModel }}
+      <input type="radio" v-model="lateNightMeal" v-bind:value="foods[0]">
+      <input type="radio" v-model="lateNightMeal" v-bind:value="foods[1]">
+      <input type="radio" v-model="lateNightMeal" v-bind:value="foods[2]">
+      {{ lateNightMeal }}
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -16,9 +18,12 @@
       new Vue({
         el: '#app',
         data: {
-          checkboxModel:'hello',
-          trueValue:'hello',
-          falseValue:'world'
+          lateNightMeal: "Hamburger",
+          foods: [
+            'Ramen',
+            'Hamburger',
+            'Chicken'
+          ]
         }
       });
     </script>
