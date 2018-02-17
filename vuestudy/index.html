@@ -7,9 +7,16 @@
   </head>
   <body>
     <div id="app">
-      <span v-if="alphabet == 'A'">A</span>
-      <span v-else-if="alphabet == 'B'">B</span>
-      <span v-else>Others</span>
+      <template v-if="soldOut">
+        <h1>품절</h1>
+        <p>품절입니다.</p>
+        <button>대기</button>
+      </template>
+      <template v-else>
+        <h1>판매 중</h1>
+        <p>10,000원</p>
+        <button>구매</button>
+      </template>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -17,7 +24,7 @@
       new Vue({
         el: '#app',
         data: {
-          alphabet:'D'
+          soldOut:true
         }
       });
 
