@@ -8,8 +8,8 @@
   <body>
     <div id="app">
       <ul>
-        <li v-for="(number, index) in numbers">
-          {{ index }}: {{ number }}
+        <li v-for="item in object">
+          {{ item }}
         </li>
       </ul>
     </div>
@@ -19,7 +19,11 @@
       new Vue({
         el: '#app',
         data: {
-          numbers: [1,1,2,5,8,13,21]
+          object: {
+            firstName: 'Dong-Gyu',
+            lastName: 'Seo',
+            age: 31
+          }
         }
       });
 
