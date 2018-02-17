@@ -7,12 +7,7 @@
   </head>
   <body>
     <div id="app">
-      <button @click="shuffle">shuffle</button>
-      <ul>
-        <li v-for="message in messages">
-          {{ message }}
-        </li>
-      </ul>
+      <button @click="todayAlert">What time is it now ?</button>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -23,15 +18,8 @@
           messages:[]
         },
         methods: {
-          shuffle: function() {
-            var temp = 0;
-
-            for (var i=0; i<this.messages.length; i+=1) {
-              var randomIndex = Math.floor(Math.random() * (i+1));
-              temp = this.messages[randomIndex];
-              Vue.set(this.messages, randomIndex, this.messages[i]);
-              Vue.set(this.messages, i, temp);
-            }
+          todayAlert: function() {
+            alert(new Date());
           }
         },
         mounted: function() {
