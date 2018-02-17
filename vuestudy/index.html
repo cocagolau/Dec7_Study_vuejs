@@ -7,8 +7,10 @@
   </head>
   <body>
     <div id="app">
-      문자열: {{message}} <br>
-      문자열 역순: {{reverseMessage }}
+      <input v-model="fullName"><br>
+        Frist Name: {{firstName}} <br>
+        Last Name: {{lastName}} <br>
+        Full name: {{fullName}}
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -16,11 +18,19 @@
       new Vue({
         el: '#app',
         data: {
-          message: 'Hello Vue!'
+          firstName: 'Dong-Gyu',
+          lastName: 'Seo'
         },
         computed: {
-          reverseMessage: function() {
-            return this.message.split('').reverse().join('');
+          fullName: {
+            get: function() {
+              return this.firstName + ' ' + this.lastName;
+            },
+            set: function(newValue) {
+              var names = newValue.split(' ');
+              this.firstName = names[0];
+              this.lastName = names[names.length - 1];
+            }
           }
         }
       });
