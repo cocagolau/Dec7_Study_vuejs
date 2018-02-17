@@ -7,8 +7,7 @@
   </head>
   <body>
     <div id="app">
-      <button @click="changeValue">Click me</button><br>
-      {{ value }}
+      <span v-text="message"></span>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -16,15 +15,7 @@
       new Vue({
         el: '#app',
         data: {
-          value:12345
-        },
-        methods: {
-          changeValue: function() {
-            this.value = Math.random();
-          }
-        },
-        updated: function() {
-          console.log('Re-rendering completed!!');
+          message: 'Hello Vue!!'
         }
       });
 
