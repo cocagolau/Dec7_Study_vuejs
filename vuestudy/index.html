@@ -7,7 +7,7 @@
   </head>
   <body>
     <div id="app">
-      <span v-text="message"></span>
+      <span>{{ price }} {{ currency }}</span>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -15,7 +15,8 @@
       new Vue({
         el: '#app',
         data: {
-          message: 'Hello Vue!!'
+          price: 2100,
+          currency: '$'
         }
       });
 
