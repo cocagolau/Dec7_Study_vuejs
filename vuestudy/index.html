@@ -8,7 +8,7 @@
   <body>
     <div id="app">
       <p>Not applied Filter: {{ message }} </p>
-      <P>Applied Filter: {{ message | ellipsis(10, '...') }}</P>
+      <P>Applied Filter: {{ message | trim | ellipsis(10, '...') }}</P>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -16,11 +16,14 @@
       new Vue({
         el: '#app',
         data: {
-          message:'하하하. vue.js 재밌게 재밌게 공부합니다. !!'
+          message:'     하하하. vue.js 재밌게 재밌게 공부합니다. !!    '
         },
         filters: {
           ellipsis: function(value, length, string) {
             return value.slice(0, length) + string;
+          },
+          trim: function(value) {
+            return value.trim();
           }
         }
       });
