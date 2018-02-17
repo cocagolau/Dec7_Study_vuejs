@@ -8,7 +8,7 @@
   <body>
     <div id="app">
       <ul>
-        <li v-for="index in 100">
+        <li v-for="index in numbers">
           {{ index }}
         </li>
       </ul>
@@ -17,7 +17,10 @@
     <script src="https://unpkg.com/vue@2.3"></script>
     <script>
       new Vue({
-        el: '#app'
+        el: '#app',
+        data: {
+          numbers: [1,1,2,5,8,13,21]
+        }
       });
 
     </script>
