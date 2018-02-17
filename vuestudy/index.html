@@ -13,7 +13,7 @@
   </head>
   <body>
     <div id="app">
-      <input type="text" @keydown="preventKey">
+      <input type="text" @keydown.delete.prevent="preventKey">
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -22,9 +22,7 @@
         el: '#app',
         methods: {
           preventKey: function() {
-            if (event.keyCode == 8 || event.keyCode == 46) {
-              event.preventDefault();
-            }
+            //event.preventDefault();
           }
         }
       });
