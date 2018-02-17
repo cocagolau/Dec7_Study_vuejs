@@ -7,18 +7,22 @@
   </head>
   <body>
     <div id="app">
-      <ul>
-        <li v-for="todo in todos" v-if="todo.isComplete">
-          {{ todo.contents }}
-        </li>
-      </ul>
+      <h1>todo list</h1>
+      <template v-if="isVisibility">
+        <h2>success..</h2>
+        <ul>
+          <li v-for="todo in todos" v-if="todo.isComplete">
+            {{ todo.contents }}
+          </li>
+        </ul>
 
-      <h2>not yet..</h2>
-      <ul>
-        <li v-for="todo in todos" v-if="!todo.isComplete">
-          {{ todo.contents }}
-        </li>
-      </ul>
+        <h2>not yet..</h2>
+        <ul>
+          <li v-for="todo in todos" v-if="!todo.isComplete">
+            {{ todo.contents }}
+          </li>
+        </ul>
+      </template>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -26,6 +30,7 @@
       new Vue({
         el: '#app',
         data: {
+          isVisibility: false,
           todos: [
             {contents: '1 contents', isComplete:true},
             {contents: '2 contents', isComplete:false},
