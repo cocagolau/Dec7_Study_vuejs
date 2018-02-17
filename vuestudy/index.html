@@ -7,10 +7,9 @@
   </head>
   <body>
     <div id="app">
-      <input type="text" @keyup.up.down.left.right="arrowKey">
-      <!--
-      enter, tab, delete(Backspace + Delete), esc, space, up, down, left, right
-      -->
+      <input type="text" @keyup.shift="triggerAll">
+      <input type="text" @keyup.shift.space="triggerSpace">
+      <input type="text" @click.shift="triggerClick">
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -18,8 +17,14 @@
       new Vue({
         el: '#app',
         methods: {
-          arrowKey: function() {
-            event.target.value = event.key;
+          triggerAll: function() {
+            alert(event.key);
+          },
+          triggerSpace: function() {
+            alert('Shift + space');
+          },
+          triggerClick: function() {
+            alert('Shift + click');
           }
         }
       });
