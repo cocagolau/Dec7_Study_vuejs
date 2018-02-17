@@ -8,9 +8,10 @@
   <body>
     <div id="app">
       <ul>
-        <li v-for="item in object">
-          {{ item }}
-        </li>
+        <template v-for="(item, key) in object">
+          <h1>{{ key }}</h1>
+          <p>{{ item }}</p>
+        </template>
       </ul>
     </div>
 
