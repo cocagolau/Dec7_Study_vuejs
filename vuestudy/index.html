@@ -8,8 +8,8 @@
   <body>
     <div id="app">
       <ul>
-        <li v-for="index in numbers">
-          {{ index }}
+        <li v-for="(number, index) in numbers">
+          {{ index }}: {{ number }}
         </li>
       </ul>
     </div>
