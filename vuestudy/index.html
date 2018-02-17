@@ -4,16 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>vuestudy</title>
-    <style>
-      div { padding: 20px; }
-      #outer { background: blue; }
-      #middle { background: green; }
-      #inner { background: white; }
-    </style>
   </head>
   <body>
     <div id="app">
-      <input type="text" @keydown.delete.prevent="preventKey">
+      <input type="text" @keyup.up.down.left.right="arrowKey">
+      <!--
+      enter, tab, delete(Backspace + Delete), esc, space, up, down, left, right
+      -->
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -21,8 +18,8 @@
       new Vue({
         el: '#app',
         methods: {
-          preventKey: function() {
-            //event.preventDefault();
+          arrowKey: function() {
+            event.target.value = event.key;
           }
         }
       });
