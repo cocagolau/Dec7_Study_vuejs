@@ -7,13 +7,18 @@
   </head>
   <body>
     <div id="app">
-      <select v-model="selected">
-        <option disabled value="">What is your blood type ?</option>
-        <option v-for="type in ['A','B','O','AB']" v-bind:value="type">
-          {{ type }}
-        </option>
-      </select>
-      <p>{{ selected }}</p>
+      <label>
+        Name:
+        <input v-model="name" value="DongGyu">
+      </label>
+
+      <br>
+
+      <label>
+        Do you want to get an email ?
+        <input type="checkbox" v-model="acceptMail" checked>
+      </label>
+
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -21,7 +26,8 @@
       new Vue({
         el: '#app',
         data: {
-          selected:''
+          name:'Dec7',
+          acceptMail: false
         }
       });
     </script>
