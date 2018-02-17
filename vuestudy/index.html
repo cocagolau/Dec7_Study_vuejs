@@ -7,11 +7,8 @@
   </head>
   <body>
     <div id="app">
-      <input v-model="search"><br>
-      검색결과:
-      <ul>
-        <li>...</li>
-      </ul>
+      <button @click="changeValue">Click me</button><br>
+      {{ value }}
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
@@ -19,15 +16,15 @@
       new Vue({
         el: '#app',
         data: {
-          search:''
+          value:12345
         },
-        watch: {
-          search: function(value) {
-            this.$http.get('/search?value' + value)
-              .then(function(response) {
-                /* ...  */
-            });
+        methods: {
+          changeValue: function() {
+            this.value = Math.random();
           }
+        },
+        updated: function() {
+          console.log('Re-rendering completed!!');
         }
       });
 
