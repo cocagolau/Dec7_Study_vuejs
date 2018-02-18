@@ -7,25 +7,27 @@
   </head>
   <body>
     <div id="app">
-      <counter-component></counter-component>
-      <counter-component></counter-component>
-      <counter-component></counter-component>
+      <date></date>
+      <date></date>
+      <date></date>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
     <script>
 
-      Vue.component('counter-component', {
-        template:'<button @click="counter += 1">{{ counter }}</button>',
+      var dateComponent = {
+        template: '<div>{{ now }}</div>',
         data: function() {
           return {
-            counter: 0
+            now: new Date()
           }
         }
-      })
-
+      }
       new Vue({
-        el: '#app'
+        el: '#app',
+        components: {
+          date: dateComponent
+        }
       });
 
 
