@@ -7,24 +7,41 @@
   </head>
   <body>
     <div id="app">
-      <h1>Study</h1>
-      <table>
-        <tr is="row-component"></tr>
-        <tr is="row-component"></tr>
-        <tr is="row-component"></tr>
-      </table>
+      <todo-component></todo-component>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
+
+    <!-- Split template -->
+    <script type="text/x-template" id="todo-component">
+      <div>
+        <h1>2018 Objective</h1>
+        <ul>
+          <li v-for="todo in todos">
+            {{ todo }}
+          </li>
+        </ul>
+      </div>
+    </script>
+
     <script>
-      var rowComponent = {
-        template: '<tr><td>Apple</td><td>Melon</td></tr>'
+      var todoComponent = {
+        template: '#todo-component',
+        data: function() {
+          return {
+            todos: [
+              'todo1',
+              'todo2',
+              'todo3'
+            ]
+          }
+        }
       }
 
       new Vue({
         el: '#app',
         components: {
-          'row-component': rowComponent
+          'todo-component': todoComponent
         }
       });
 
