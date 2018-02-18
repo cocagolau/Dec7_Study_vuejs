@@ -15,12 +15,10 @@
     <script src="https://unpkg.com/vue@2.3"></script>
     <script>
 
-      Vue.component('date', {
-        template:'<div>{{ now }}</div>',
-        data: function() {
-          return {
-            now: new Date()
-          }
+      Vue.component('counter-component', {
+        template:'<button @click="counter += 1">{{ counter }}</button>',
+        data: {
+          counter:0
         }
       })
 
