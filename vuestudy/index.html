@@ -7,15 +7,17 @@
   </head>
   <body>
     <div id="app">
-      <simple-component message="Hello Vue!"></simple-component>
+      <!-- write as kebab-case -->
+      <simple-component simple-message="Hello Vue!"></simple-component>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
 
     <script>
       var simpleComponent = {
-        props: ['message'],
-        template: '<div>{{ message }}</div>'
+        // give as camelCase
+        props: ['simpleMessage'],
+        template: '<div>{{ simpleMessage }}</div>'
       }
 
       new Vue({
