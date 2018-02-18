@@ -7,26 +7,27 @@
   </head>
   <body>
     <div id="app">
-      <simple-component :price="price"></simple-component>
+      <simple-component :name="name" :price="price" :message="message"></simple-component>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
 
     <script>
       var simpleComponent = {
-        props: ['price'],
-        template: '<div><p>Price: {{ price }}</p><p>Discount: {{ discountPrice }}</p></div>',
-        computed: {
-          discountPrice: function () {
-            return this.price * 0.7;
-          }
-        }
+        props: {
+          name: String,
+          price: Number,
+          message: [String, Number]
+        },
+        template: '<div>{{ name }}, {{ price }}, {{ message }}</div>'
       }
 
       new Vue({
         el: '#app',
         data: {
-          price:125000
+          name: 'Smartphone',
+          price: 125000,
+          message: 'new Smartphone'
         },
         components: {
           'simple-component': simpleComponent
