@@ -15,9 +15,26 @@
     <script>
       var simpleComponent = {
         props: {
-          name: String,
-          price: Number,
-          message: [String, Number]
+          name: {
+            type: String,
+            default: 'Old smartphone' // default value
+          },
+          price: {
+            type: Number,
+            validator: function (value) {
+              return value >= 500000
+            }
+          },
+          message: {
+            type: [String, Number], // String, Number, Boolean, Function, Object, Array
+            required: true // required yn
+          },
+          object: {
+            type: Object,
+            default: function() {
+              return { message: 'Message!' };
+            }
+          }
         },
         template: '<div>{{ name }}, {{ price }}, {{ message }}</div>'
       }
@@ -26,7 +43,7 @@
         el: '#app',
         data: {
           name: 'Smartphone',
-          price: 125000,
+          price: 497000,
           message: 'new Smartphone'
         },
         components: {
