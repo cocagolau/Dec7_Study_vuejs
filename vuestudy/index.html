@@ -7,47 +7,41 @@
   </head>
   <body>
     <div id="app">
-      <simple-component :name="name" :price="price" :message="message"></simple-component>
+      <counter-component v-on:increment="incrementTotal"></counter-component>
+      <counter-component v-on:increment="incrementTotal"></counter-component>
+      <p>Total: {{ total }}</p>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
 
     <script>
-      var simpleComponent = {
-        props: {
-          name: {
-            type: String,
-            default: 'Old smartphone' // default value
-          },
-          price: {
-            type: Number,
-            validator: function (value) {
-              return value >= 500000
-            }
-          },
-          message: {
-            type: [String, Number], // String, Number, Boolean, Function, Object, Array
-            required: true // required yn
-          },
-          object: {
-            type: Object,
-            default: function() {
-              return { message: 'Message!' };
-            }
-          }
+      var counterComponent = {
+        template: '<button @click="increment" >{{ counter }}</button>',
+        data: function() {
+          return {
+            counter: 0
+          };
         },
-        template: '<div>{{ name }}, {{ price }}, {{ message }}</div>'
+        methods: {
+          increment: function() {
+            this.counter += 1;
+            this.$emit('increment');
+          }
+        }
       }
 
       new Vue({
         el: '#app',
         data: {
-          name: 'Smartphone',
-          price: 497000,
-          message: 'new Smartphone'
+          total: 0
+        },
+        methods: {
+          incrementTotal: function() {
+            this.total += 1;
+          }
         },
         components: {
-          'simple-component': simpleComponent
+          'counter-component': counterComponent
         }
       });
 
