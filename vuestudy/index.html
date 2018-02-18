@@ -7,41 +7,21 @@
   </head>
   <body>
     <div id="app">
-      <todo-component></todo-component>
+      <simple-component message="Hello Vue!"></simple-component>
     </div>
 
     <script src="https://unpkg.com/vue@2.3"></script>
 
-    <!-- Split template -->
-    <script type="text/x-template" id="todo-component">
-      <div>
-        <h1>2018 Objective</h1>
-        <ul>
-          <li v-for="todo in todos">
-            {{ todo }}
-          </li>
-        </ul>
-      </div>
-    </script>
-
     <script>
-      var todoComponent = {
-        template: '#todo-component',
-        data: function() {
-          return {
-            todos: [
-              'todo1',
-              'todo2',
-              'todo3'
-            ]
-          }
-        }
+      var simpleComponent = {
+        props: ['message'],
+        template: '<div>{{ message }}</div>'
       }
 
       new Vue({
         el: '#app',
         components: {
-          'todo-component': todoComponent
+          'simple-component': simpleComponent
         }
       });
 
